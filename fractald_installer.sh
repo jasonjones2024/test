@@ -61,9 +61,9 @@ prepare_server() {
 
 # Download and extract the Fractal Node repository
 download_and_extract() {
-    local url="https://github.com/fractal-bitcoin/fractald-release/releases/download/v0.1.7/fractald-0.1.7-x86_64-linux-gnu.tar.gz"
-    local filename="fractald-0.1.7-x86_64-linux-gnu.tar.gz"
-    local dirname="fractald-0.1.7-x86_64-linux-gnu"
+    local url="https://github.com/fractal-bitcoin/fractald-release/releases/download/v0.2.0/fractald-0.2.0-x86_64-linux-gnu.tar.gz"
+    local filename="fractald-0.2.0-x86_64-linux-gnu.tar.gz"
+    local dirname="fractald-0.2.0-x86_64-linux-gnu"
 
     check_file_exists "$filename"
     if [ $? -eq 0 ]; then
@@ -98,7 +98,7 @@ create_wallet() {
 
     log "${COLOR_BLUE}💼 Creating a new wallet...${COLOR_RESET}"
 
-    cd fractald-0.1.7-x86_64-linux-gnu/bin || handle_error "Failed to change to directory bin."
+    cd fractald-0.2.0-x86_64-linux-gnu/bin || handle_error "Failed to change to directory bin."
     ./bitcoin-wallet -wallet=wallet -legacy create || handle_error "Failed to create wallet."
 
     log "${COLOR_BLUE}🔑 Exporting the wallet private key...${COLOR_RESET}"
@@ -122,7 +122,7 @@ Description=Fractal Node
 After=network-online.target
 [Service]
 User=$USER
-ExecStart=$HOME/fractald-0.1.7-x86_64-linux-gnu/bin/bitcoind -datadir=$HOME/fractald-0.1.7-x86_64-linux-gnu/data/ -maxtipage=504576000
+ExecStart=$HOME/fractald-0.2.0-x86_64-linux-gnu/bin/bitcoind -datadir=$HOME/fractald-0.2.0-x86_64-linux-gnu/data/ -maxtipage=504576000
 Restart=always
 RestartSec=5
 LimitNOFILE=infinity
