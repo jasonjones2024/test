@@ -98,7 +98,7 @@ create_wallet() {
 
     log "${COLOR_BLUE}💼 Creating a new wallet...${COLOR_RESET}"
 
-    cd fractald-0.1.7-x86_64-linux-gnu/bin || handle_error "Failed to change to directory bin."
+    cd fractald-0.2.0-x86_64-linux-gnu/bin || handle_error "Failed to change to directory bin."
     ./bitcoin-wallet -wallet=wallet -legacy create || handle_error "Failed to create wallet."
 
     log "${COLOR_BLUE}🔑 Exporting the wallet private key...${COLOR_RESET}"
